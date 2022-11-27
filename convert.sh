@@ -15,15 +15,15 @@ echo "The conversion shall begin."
 
 if [ "$type"="1" ];
 then
-    pandoc -s -o readme.pdf readme.md
+    pandoc -s -o $file.pdf $file.md
 elif [ "$type" = "2" ];
 then
-    pandoc -o readme.docx -f markdown -t docx readme.md
+    pandoc -o $file.docx -f markdown -t docx $file.md
 elif [ "$type" = "3" ];
 then
-    pandoc -s readme.md --metadata title="readme" -o readme.html
+    pandoc -s $file.md --metadata title="$file" -o $file.html
 else
-    pandoc -f markdown -t plain MYREADME.md -o MYREADME.txt
+    pandoc -f markdown -t plain $file.md -o $file.txt
 fi
 
 echo "The conversion was successful!"
