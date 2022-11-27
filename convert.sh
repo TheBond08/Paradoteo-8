@@ -15,7 +15,7 @@ echo "The conversion shall begin."
 
 if [ "$type"="a" ];
 then
-    pandoc -s -o $file.pdf $file.md
+     pandoc -N --quiet --variable "geometry=margin=1.2in" --variable mainfont="DejaVuSansMono" --variable sansfont="DejaVuSansMono" --variable monofont="DejaVuSansMono" --variable fontsize=12pt --variable version=2.0 $file.md  --pdf-engine=xelatex --toc -o %file.pdf
 elif [ "$type" = "b" ];
 then
     pandoc -o $file.docx -f markdown -t docx $file.md
